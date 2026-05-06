@@ -1,43 +1,64 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "../ui/Container";
 
 /**
  * COMPONENT: Footer
  * Section: Layout
- * Purpose: Final navigational block with branding, quick links, and contact summary.
+ * Updated: Included all Nav Links and matching IDs
  */
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  // Unified links to match Navbar
+  const footerLinks = [
+    { name: "Home", href: "#Hero" },
+    { name: "Courses", href: "#courses" },
+    { name: "Results", href: "#results" },
+    { name: "Locations", href: "#locations" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
-    <footer className="bg-white border-t border-divider pt-16 pb-8">
+    <footer className="bg-primary text-white pt-16 pb-8">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
-          {/* Column 1: Brand */}
-          <div className="space-y-4">
-            <Link href="/" className="text-2xl font-display font-bold text-primary tracking-tight">
-              UNIQUE<span className="text-cta">CLASSES</span>
+          {/* Column 1: Brand & Logo */}
+          <div className="space-y-6">
+            <Link href="/" className="inline-block">
+              <div className="bg-white p-2 rounded-xl inline-flex items-center justify-center">
+                <Image 
+                  src="/logo.avif" 
+                  alt="Unique Classes Logo" 
+                  width={150} 
+                  height={50} 
+                  className="object-contain"
+                />
+              </div>
             </Link>
-            <p className="text-cta font-bold text-xs uppercase tracking-[0.2em]">
-              Where Scholars Are Made
-            </p>
-            <p className="text-text-muted text-sm leading-relaxed max-w-xs">
-              Providing quality education and personal guidance for students from 8th to 12th along with JEE and NEET preparation.
-            </p>
+            
+            <div className="space-y-2">
+              <p className="text-cta font-bold text-xs uppercase tracking-[0.2em]">
+                Where Scholars Are Made
+              </p>
+              <p className="text-white/70 text-sm leading-relaxed max-w-xs">
+                Providing quality education and personal guidance for students from 8th to 12th along with JEE and NEET preparation.
+              </p>
+            </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Quick Links (Updated to match Navbar) */}
           <div>
-            <h4 className="font-display font-bold text-text-heading mb-6">Quick Links</h4>
+            <h4 className="font-display font-bold text-white mb-6">Quick Links</h4>
             <ul className="space-y-4">
-              {["Home", "Courses", "About", "Contact"].map((link) => (
-                <li key={link}>
+              {footerLinks.map((link) => (
+                <li key={link.name}>
                   <Link 
-                    href={link === "Home" ? "/" : `#${link.toLowerCase()}`}
-                    className="text-text-body text-sm hover:text-primary transition-colors"
+                    href={link.href}
+                    className="text-white/60 text-sm hover:text-cta transition-colors"
                   >
-                    {link}
+                    {link.name}
                   </Link>
                 </li>
               ))}
@@ -46,43 +67,55 @@ export const Footer = () => {
 
           {/* Column 3: Courses */}
           <div>
-            <h4 className="font-display font-bold text-text-heading mb-6">Our Courses</h4>
-            <ul className="space-y-4 text-text-body text-sm">
-              <li>8th–10th Foundation</li>
-              <li>11th Science</li>
-              <li>12th Science</li>
-              <li>JEE / NEET</li>
+            <h4 className="font-display font-bold text-white mb-6">Our Courses</h4>
+            <ul className="space-y-4 text-white/60 text-sm">
+              <li className="hover:text-white transition-colors cursor-default">8th–10th Foundation</li>
+              <li className="hover:text-white transition-colors cursor-default">11th Science</li>
+              <li className="hover:text-white transition-colors cursor-default">12th Science</li>
+              <li className="hover:text-white transition-colors cursor-default">JEE / NEET</li>
             </ul>
           </div>
 
           {/* Column 4: Contact */}
           <div>
-            <h4 className="font-display font-bold text-text-heading mb-6">Contact Us</h4>
+            <h4 className="font-display font-bold text-white mb-6">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex flex-col gap-1">
-                <span className="text-xs font-bold text-text-muted uppercase">Call Us</span>
-                <a href="tel:9552282090" className="text-text-heading font-medium hover:text-cta transition-colors">
+                <span className="text-xs font-bold text-white/40 uppercase tracking-tighter">Call Us</span>
+                <a href="tel:9552282090" className="text-white font-medium hover:text-cta transition-colors">
                   9552282090
                 </a>
               </li>
               <li className="flex flex-col gap-1">
-                <span className="text-xs font-bold text-text-muted uppercase">Email</span>
-                <a href="mailto:uniqueclasses24@gmail.com" className="text-text-heading font-medium hover:text-primary transition-colors">
+                <span className="text-xs font-bold text-white/40 uppercase tracking-tighter">Email</span>
+                <a href="mailto:uniqueclasses24@gmail.com" className="text-white font-medium hover:text-cta transition-colors">
                   uniqueclasses24@gmail.com
                 </a>
               </li>
               <li className="flex flex-col gap-1">
-                <span className="text-xs font-bold text-text-muted uppercase">Head Office</span>
-                <span className="text-text-body text-sm">Old Sangvi, Pune</span>
+                <span className="text-xs font-bold text-white/40 uppercase tracking-tighter">Head Office</span>
+                <span className="text-white/70 text-sm">Old Sangvi, Pune</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-divider">
-          <p className="text-center text-text-muted text-xs">
-            © {currentYear} Unique Classes. All Rights Reserved. Designed for Excellence.
+        <div className="pt-8 border-t border-white/10 flex flex-col items-center gap-4">
+          <p className="text-center text-white/40 text-xs">
+            © {currentYear} Unique Classes. All Rights Reserved.
+          </p>
+          
+          <p className="text-white/30 text-[10px] uppercase tracking-widest">
+            Website by{" "}
+            <a 
+              href="https://lupaentertainment.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/60 hover:text-cta transition-all font-bold"
+            >
+              Lupa Entertainment
+            </a>
           </p>
         </div>
       </Container>

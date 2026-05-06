@@ -11,7 +11,7 @@ import { Button } from "../ui/Button";
  */
 export const Hero = () => {
   return (
-    <section className="relative h-screen w-full flex items-center overflow-hidden bg-black">
+    <section id="hero" className="relative h-screen w-full flex items-center overflow-hidden bg-black">
       {/* Background Image Container */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -61,25 +61,32 @@ export const Hero = () => {
             Leading coaching for 8th-12th Science, JEE, and NEET with a legacy of producing toppers across Pune.
           </motion.p>
 
-          {/* Buttons - Maintaining your color scheme */}
+          {/* Navigation Buttons */}
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
             className="flex flex-wrap gap-4"
           >
-            <Button 
-              variant="primary" 
-              className="px-8 py-4 bg-cta hover:bg-[#c93536] text-white border-none rounded-lg font-semibold transition-all"
-            >
-              Start Your Journey
-            </Button>
-            <Button 
-              variant="outline" 
-              className="px-8 py-4 border-white text-white hover:bg-white hover:text-black rounded-lg font-semibold transition-all"
-            >
-              View Results
-            </Button>
+            {/* Redirects to #contact section */}
+            <a href="#contact" className="inline-block">
+              <Button 
+                variant="primary" 
+                className="px-8 py-4 bg-cta hover:bg-[#c93536] text-white border-none rounded-lg font-semibold transition-all cursor-pointer"
+              >
+                Start Your Journey
+              </Button>
+            </a>
+
+            {/* Redirects to #results section */}
+            <a href="#results" className="inline-block">
+              <Button 
+                variant="outline" 
+                className="px-8 py-4 border-white text-white hover:bg-white hover:text-black rounded-lg font-semibold transition-all cursor-pointer"
+              >
+                View Results
+              </Button>
+            </a>
           </motion.div>
         </div>
       </Container>

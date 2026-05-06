@@ -72,22 +72,4 @@ export const studentResults: Student[] = [
     review: "Consistent practice and regular feedback from the mentors helped me bridge my gaps and score 90% in my boards.",
     exam: "10th CBSE",
   },
-  {
-    id: "1",
-    name: "Pranav Khude",
-    score: "99.85 Percentile",
-    school: "Loyola High School",
-    image: "/students/pranav.avif",
-    review: "Unique is the best institute for IIT JEE. Teachers treat students like family and give personal attention to every doubt.",
-    exam: "JEE",
-  },
-  {
-    id: "2",
-    name: "Jitesh Mahale",
-    score: "645/720",
-    school: "Abasaheb Garware College",
-    image: "/students/jitesh.avif",
-    review: "Excellent coaching and well-structured tests helped me prepare for NEET effectively. The revision modules are top-notch.",
-    exam: "NEET",
-  },
 ];

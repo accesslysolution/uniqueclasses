@@ -25,7 +25,7 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/" },
+    { name: "Home", href: "#Hero" }, // Updated from "/" to "#Hero" to match your section ID
     { name: "Courses", href: "#courses" },
     { name: "Results", href: "#results" },
     { name: "Locations", href: "#locations" },

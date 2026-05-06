@@ -37,6 +37,11 @@
 }
 
 @layer base {
+  /* Added smooth scrolling to the HTML element */
+  html {
+    scroll-behavior: smooth;
+  }
+
   *, ::after, ::before {
     @apply border-divider outline-primary;
   }
