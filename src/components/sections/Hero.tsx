@@ -6,20 +6,27 @@ import { Button } from "../ui/Button";
 
 /**
  * SECTION: Hero
- * Image Advice: Use a high-resolution (1920x1080) candid photo of a classroom 
- * or a focused student. Avoid posters/banners with text.
+ * Image Setup: Uses localized media assets for optimal performance.
+ * Desktop: public/banner/d-hero.avif
+ * Mobile: public/banner/m-hero.avif
  */
 export const Hero = () => {
   return (
     <section id="hero" className="relative h-screen w-full flex items-center overflow-hidden bg-black">
       {/* Background Image Container */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          // Replace this URL with your actual classroom/student photo
-          backgroundImage: `url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop')` 
-        }}
-      >
+      <div className="absolute inset-0">
+        {/* Desktop Background View */}
+        <div 
+          className="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('/banners/d-hero.avif')` }}
+        />
+        
+        {/* Mobile Background View */}
+        <div 
+          className="block md:hidden absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('/banners/m-hero.avif')` }}
+        />
+
         {/* 
             CRISP OVERLAY STRATEGY:
             Darker on the left (to make white text pop) 

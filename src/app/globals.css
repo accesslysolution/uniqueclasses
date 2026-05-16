@@ -23,21 +23,27 @@
 }
 
 :root {
+  /* 🔵 Primary (unchanged) */
   --primary: #2E358D;
-  --cta: #E03B3C;
+
+  /* 🟡 CTA updated to Premium Golden Yellow */
+  --cta: #F59E0B;
+
+  /* 🎯 Accent (kept as is) */
   --accent: #D3137C;
 
+  /* 🎨 Surfaces */
   --background: #FFFFFF;
   --section: #F8FAFC;
   --divider: #F1F5F9;
 
+  /* 📝 Typography */
   --text-heading: #0F172A;
   --text-body: #334155;
   --text-muted: #64748B;
 }
 
 @layer base {
-  /* Added smooth scrolling to the HTML element */
   html {
     scroll-behavior: smooth;
   }
