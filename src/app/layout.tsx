@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-// Import your Navbar and Footer components
+// Import layout components
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+
+// Import your new floating action buttons from ui
+import { FloatingContactActions } from "@/components/ui/FloatingContactActions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,6 +45,9 @@ export default function RootLayout({
 
         {/* Footer sits at the bottom of all pages */}
         <Footer />
+
+        {/* Fixed utility actions layer */}
+        <FloatingContactActions />
       </body>
     </html>
   );
