@@ -5,7 +5,7 @@ import { Container } from "../ui/Container";
 /**
  * COMPONENT: Footer
  * Section: Layout
- * Updated: Included all Nav Links and matching IDs
+ * Updated: Included all Nav Links, updated contact numbers, and added WhatsApp with pre-typed message.
  */
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,6 +18,11 @@ export const Footer = () => {
     { name: "Locations", href: "#locations" },
     { name: "Contact", href: "#contact" },
   ];
+
+  // Professional pre-typed WhatsApp message template
+  const whatsappMessage = encodeURIComponent(
+    "Hello Unique Classes, I am interested in enrolling/inquiring about your courses. Please share more details."
+  );
 
   return (
     <footer className="bg-primary text-white pt-16 pb-8">
@@ -48,7 +53,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Quick Links (Updated to match Navbar) */}
+          {/* Column 2: Quick Links */}
           <div>
             <h4 className="font-display font-bold text-white mb-6">Quick Links</h4>
             <ul className="space-y-4">
@@ -82,13 +87,29 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li className="flex flex-col gap-1">
                 <span className="text-xs font-bold text-white/40 uppercase tracking-tighter">Call Us</span>
-                <a href="tel:9552282090" className="text-white font-medium hover:text-cta transition-colors">
-                  9552282090
+                <div className="flex flex-col gap-0.5">
+                  <a href="tel:9822547465" className="text-white font-medium hover:text-cta transition-colors text-sm">
+                    9822547465
+                  </a>
+                  <a href="tel:9371007811" className="text-white font-medium hover:text-cta transition-colors text-sm">
+                    9371007811
+                  </a>
+                </div>
+              </li>
+              <li className="flex flex-col gap-1">
+                <span className="text-xs font-bold text-white/40 uppercase tracking-tighter">WhatsApp</span>
+                <a 
+                  href={`https://wa.me/919011051088?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white font-medium hover:text-cta transition-colors text-sm flex items-center gap-1"
+                >
+                  9011051088
                 </a>
               </li>
               <li className="flex flex-col gap-1">
                 <span className="text-xs font-bold text-white/40 uppercase tracking-tighter">Email</span>
-                <a href="mailto:uniqueclasses24@gmail.com" className="text-white font-medium hover:text-cta transition-colors">
+                <a href="mailto:uniqueclasses24@gmail.com" className="text-white font-medium hover:text-cta transition-colors text-sm">
                   uniqueclasses24@gmail.com
                 </a>
               </li>

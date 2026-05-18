@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { Container, Section } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { courses, Course } from "@/data/courses";
 
 interface CoursesSectionProps {
@@ -18,7 +17,7 @@ interface CoursesSectionProps {
  */
 export const CoursesSection = ({ onCourseClick }: CoursesSectionProps) => {
   return (
-    <Section id="courses" className="bg-slate-50">
+    <Section id="courses" className="bg-section py-16 md:py-24">
       <Container>
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -26,7 +25,7 @@ export const CoursesSection = ({ onCourseClick }: CoursesSectionProps) => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-display font-bold mb-6 text-slate-900"
+            className="text-4xl md:text-5xl font-display font-bold mb-6 text-text-heading"
           >
             Programs Offered
           </motion.h2>
@@ -35,7 +34,7 @@ export const CoursesSection = ({ onCourseClick }: CoursesSectionProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-slate-500"
+            className="text-lg text-text-body"
           >
             From foundation years to competitive excellence, we guide students through every academic milestone.
           </motion.p>
@@ -50,43 +49,41 @@ export const CoursesSection = ({ onCourseClick }: CoursesSectionProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              // Handle click on the motion wrapper to avoid Card component prop errors
               onClick={() => onCourseClick(course)}
-              className="cursor-pointer"
+              className="cursor-pointer flex"
             >
-              <Card className="group h-full flex flex-col border-none shadow-sm hover:shadow-xl transition-all duration-500 rounded-[2rem] overflow-hidden bg-white">
+              <Card className="group relative flex flex-col w-full border border-divider shadow-soft hover:shadow-xl hover:border-primary/20 transition-all duration-500 rounded-[2rem] overflow-hidden bg-background">
                 {/* Image Container */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-48 overflow-hidden bg-section">
                   <img 
                     src={course.image} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                     alt={course.title}
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-primary">
+                    <span className="bg-background/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-text-heading shadow-sm border border-divider">
                       {course.category}
                     </span>
                   </div>
                 </div>
                 
                 {/* Content Area */}
-                <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-xl font-display font-bold text-slate-900 mb-2 leading-tight">
-                    {course.title}
-                  </h3>
-                  <p className="text-slate-500 text-sm mb-6 line-clamp-2">
-                    {course.description}
-                  </p>
+                <div className="p-7 flex flex-col flex-grow justify-between">
+                  <div className="mb-6">
+                    <h3 className="text-xl font-display font-bold text-text-heading mb-2 leading-tight group-hover:text-primary transition-colors duration-300">
+                      {course.title}
+                    </h3>
+                    <p className="text-text-muted text-sm line-clamp-2 leading-relaxed">
+                      {course.description}
+                    </p>
+                  </div>
                   
-                  {/* Action Button */}
-                  <div className="mt-auto">
-                    <Button 
-                      variant="outline" 
-                      className="w-full justify-between group/btn hover:bg-primary hover:text-white rounded-xl border-slate-200"
-                    >
-                      Learn More
-                      <ArrowUpRight size={18} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                    </Button>
+                  {/* SaaS-Style Button mapped explicitly to your CSS System Tokens */}
+                  <div className="mt-auto pt-4 border-t border-divider">
+                    <div className="inline-flex w-full items-center justify-between bg-primary text-background group-hover:bg-cta group-hover:text-text-heading px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all duration-300 shadow-soft group-active:scale-[0.98]">
+                      <span className="truncate">Explore Program Curriculum</span>
+                      <ArrowRight size={14} className="ml-2 shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
                   </div>
                 </div>
               </Card>

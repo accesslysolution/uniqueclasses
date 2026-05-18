@@ -50,6 +50,11 @@ export const ContactSection = () => {
     setIsSubmitting(false);
   };
 
+  // Professional pre-typed WhatsApp message
+  const whatsappMessage = encodeURIComponent(
+    "Hello Unique Classes, I am interested in enrolling/inquiring about your courses. Please share more details."
+  );
+
   return (
     <Section id="contact" className="bg-section py-20 lg:py-24">
       <Container>
@@ -72,27 +77,59 @@ export const ContactSection = () => {
             </div>
 
             <div className="space-y-6">
-              {[
-                { icon: Phone, label: "Call Us", value: "9552282090", href: "tel:9552282090" },
-                { icon: Mail, label: "Email Us", value: "uniqueclasses24@gmail.com", href: "mailto:uniqueclasses24@gmail.com" },
-                { icon: MapPin, label: "Head Office", value: "Old Sangvi, Pune", href: "https://maps.app.goo.gl/uX6zM6vM4u8W8M8z8" }
-              ].map((item, i) => (
-                <div key={i} className="flex gap-5 items-center">
-                  <div className="w-10 h-10 rounded-xl bg-background shadow-soft flex items-center justify-center text-primary shrink-0 border border-divider">
-                    <item.icon size={18} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.15em] text-text-muted mb-0.5">{item.label}</p>
-                    <a href={item.href} className="text-lg font-semibold text-text-heading hover:text-cta transition-colors">
-                      {item.value}
+              {/* Call Us row configured to handle multiple numbers cleanly */}
+              <div className="flex gap-5 items-center">
+                <div className="w-10 h-10 rounded-xl bg-background shadow-soft flex items-center justify-center text-primary shrink-0 border border-divider">
+                  <Phone size={18} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-text-muted mb-0.5">Call Us</p>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                    <a href="tel:9822547465" className="text-lg font-semibold text-text-heading hover:text-cta transition-colors">
+                      9822547465
+                    </a>
+                    <span className="hidden sm:inline text-text-muted/40">|</span>
+                    <a href="tel:9371007811" className="text-lg font-semibold text-text-heading hover:text-cta transition-colors">
+                      9371007811
                     </a>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Email Row */}
+              <div className="flex gap-5 items-center">
+                <div className="w-10 h-10 rounded-xl bg-background shadow-soft flex items-center justify-center text-primary shrink-0 border border-divider">
+                  <Mail size={18} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-text-muted mb-0.5">Email Us</p>
+                  <a href="mailto:uniqueclasses24@gmail.com" className="text-lg font-semibold text-text-heading hover:text-cta transition-colors">
+                    uniqueclasses24@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              {/* Head Office Row */}
+              <div className="flex gap-5 items-center">
+                <div className="w-10 h-10 rounded-xl bg-background shadow-soft flex items-center justify-center text-primary shrink-0 border border-divider">
+                  <MapPin size={18} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-text-muted mb-0.5">Head Office</p>
+                  <a href="https://maps.app.goo.gl/uX6zM6vM4u8W8M8z8" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-text-heading hover:text-cta transition-colors">
+                    Old Sangvi, Pune
+                  </a>
+                </div>
+              </div>
             </div>
 
+            {/* Updated WhatsApp CTA Button */}
             <div className="pt-2">
-              <a href="https://wa.me/919552282090" target="_blank" rel="noopener noreferrer">
+              <a 
+                href={`https://wa.me/919011051088?text=${whatsappMessage}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <Button className="bg-[#25D366] hover:bg-[#128C7E] text-white rounded-xl px-6 py-5 text-sm font-bold shadow-lg shadow-green-100 transition-all hover:-translate-y-0.5">
                   Chat on WhatsApp
                 </Button>

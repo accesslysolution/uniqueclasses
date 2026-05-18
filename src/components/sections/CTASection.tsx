@@ -52,7 +52,6 @@ export const CTASection = () => {
       if (!response.ok) {
         const errorData = await response.json();
         console.error("Email API failed:", errorData);
-        // We still show success to the user because the Lead is saved in DB
       }
 
       // 3. UI Success Feedback
@@ -64,11 +63,16 @@ export const CTASection = () => {
 
     } catch (err) {
       console.error("Workflow failed:", err);
-      alert("Registration failed. Please call us directly at 9552282090.");
+      alert("Registration failed. Please call us directly at 9822547465 or 9371007811.");
     } finally {
       setLoading(false);
     }
   };
+
+  // Professional pre-typed WhatsApp message
+  const whatsappMessage = encodeURIComponent(
+    "Hello Unique Classes, I am interested in enrolling/inquiring about your courses. Please share more details."
+  );
 
   return (
     <Section id="cta" className="bg-text-heading relative overflow-hidden py-16 lg:py-24">
@@ -109,21 +113,25 @@ export const CTASection = () => {
               To appear in AST, contact us today or register below.
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                onClick={() => window.open("tel:9552282090")}
-                className="bg-cta hover:bg-cta/90 text-white px-8 py-6 text-base rounded-xl transition-all hover:scale-[1.02] flex gap-2 border-none shadow-lg"
+            {/* SaaS-Style Action Row */}
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+              <button 
+                onClick={() => window.open(`https://wa.me/919011051088?text=${whatsappMessage}`, "_blank")}
+                className="inline-flex items-center justify-center gap-2 bg-white/[0.08] hover:bg-white text-white hover:text-text-heading px-5 py-2.5 text-sm font-semibold rounded-lg border border-white/10 hover:border-white transition-all shadow-sm backdrop-blur-sm active:scale-[0.98] w-full sm:w-auto shrink-0"
               >
-                <Phone size={18} /> 9552282090
-              </Button>
-              
-              <Button 
-                variant="outline" 
-                onClick={() => window.open("https://wa.me/919552282090", "_blank")}
-                className="border-white/10 bg-white/5 text-white hover:bg-white hover:text-text-heading px-8 py-6 text-base backdrop-blur-md rounded-xl transition-all flex gap-2"
-              >
-                <MessageCircle size={18} /> WhatsApp
-              </Button>
+                <MessageCircle size={15} /> 
+                <span>Chat on WhatsApp</span>
+              </button>
+
+              <div className="flex items-center gap-2.5 text-white/80 sm:border-l sm:border-white/10 sm:pl-5 h-5">
+                <Phone size={14} className="text-cta shrink-0" />
+                <span className="text-[10px] font-bold uppercase tracking-wider text-white/40">Call:</span>
+                <div className="flex items-center gap-2.5 text-sm font-semibold">
+                  <a href="tel:9822547465" className="text-white hover:text-cta transition-colors">9822547465</a>
+                  <span className="text-white/20 text-xs">|</span>
+                  <a href="tel:9371007811" className="text-white hover:text-cta transition-colors">9371007811</a>
+                </div>
+              </div>
             </div>
           </motion.div>
 
